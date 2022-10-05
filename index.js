@@ -17,9 +17,6 @@ mongoose.connect(process.env.DB_CONNECT, { useNewUrlParser: true }, () => {
   console.log("Connected to db!");
   app.listen(app.get("port"), () => console.log("Server Up and running"));
 });
-// app.listen(app.get("port"), () => {
-//   console.log(`web app working at http://127.0.0.1:${app.get("port")}`);
-// });
 
 // GET METHOD
 app.get("/", (req, res) => {
@@ -38,6 +35,7 @@ app.post("/", async (req, res) => {
     res.redirect("/");
   }
 });
+
 //UPDATE
 app
   .route("/edit/:id")
@@ -54,6 +52,7 @@ app
       res.redirect("/");
     });
   });
+
 //DELETE
 app.route("/remove/:id").get((req, res) => {
   const id = req.params.id;
